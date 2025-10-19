@@ -6,10 +6,8 @@ public class Numbers {
 
     private final List<PositiveNumber> positiveNumbers;
 
-    public Numbers(List<String> stringNumbers) {
-        this.positiveNumbers = stringNumbers.stream()
-                .map(PositiveNumber::from)
-                .toList();
+    public Numbers(List<PositiveNumber> positiveNumbers) {
+        this.positiveNumbers = positiveNumbers;
     }
 
     public int sum() {
