@@ -18,8 +18,8 @@ public class StringCalculatorTest {
 
     @BeforeEach
     void setUp() {
-        ParsingStrategy parsingStrategy = new ParsingStrategyImpl();
         Validator validator = new ValidatorImpl();
+        ParsingStrategy parsingStrategy = new ParsingStrategyImpl(validator);
         calculator = new StringCalculatorImpl(parsingStrategy, validator);
     }
 

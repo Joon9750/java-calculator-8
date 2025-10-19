@@ -13,8 +13,8 @@ import calculator.view.OutputView;
 public class Application {
     public static void main(String[] args) {
         // TODO: 프로그램 구현
-        ParsingStrategy parsingStrategy = new ParsingStrategyImpl();
         Validator validator = new ValidatorImpl();
+        ParsingStrategy parsingStrategy = new ParsingStrategyImpl(validator);
         StringCalculator stringCalculator = new StringCalculatorImpl(parsingStrategy, validator);
 
         InputView inputView = new InputView();

@@ -5,8 +5,6 @@ import calculator.domain.parser.ParsingStrategy;
 import calculator.domain.parser.ParsingStrategyType;
 import calculator.domain.validate.Validator;
 
-import java.util.Objects;
-
 public class StringCalculatorImpl implements StringCalculator {
 
     private final ParsingStrategy parsingStrategy;
@@ -22,7 +20,7 @@ public class StringCalculatorImpl implements StringCalculator {
         validateInputText(text);
         ParsingStrategyType parsingStrategyType = findParsingStrategyType(text);
         Numbers numbers = parseText(text, parsingStrategyType);
-        return calculateNumbersSum(Objects.requireNonNull(numbers));
+        return calculateNumbersSum(numbers);
     }
 
     private void validateInputText(String text) {
@@ -30,7 +28,7 @@ public class StringCalculatorImpl implements StringCalculator {
     }
 
     private ParsingStrategyType findParsingStrategyType(String text) {
-        return ParsingStrategyType.findStrategyFor(text);
+        return ParsingStrategyType.findStrategyFor(this.parsingStrategy, text);
     }
 
     private Numbers parseText(String text, ParsingStrategyType parsingStrategyType) {

@@ -3,13 +3,14 @@ package calculator.domain.parser;
 import calculator.domain.number.Numbers;
 
 import calculator.domain.number.PositiveNumber;
+import calculator.domain.validate.Validator;
 import calculator.global.Error;
 import java.util.Arrays;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class ParsingStrategyImpl implements ParsingStrategy {
+public record ParsingStrategyImpl(Validator validator) implements ParsingStrategy {
 
     @Override
     public Numbers parseDefaultText(String text) {
