@@ -18,7 +18,7 @@ public class PositiveNumber {
 
     private void validateNegative(int number) {
         if (number < 0) {
-            Error.throwNegativeNumberNotAllowed();
+            Error.NEGATIVE_NUMBER_NOT_ALLOWED.throwException();
         }
     }
 
@@ -33,7 +33,7 @@ public class PositiveNumber {
         try {
             return Integer.parseInt(text);
         } catch (NumberFormatException e) {
-            Error.throwInvalidNumberFormat();
+            Error.INVALID_NUMBER_FORMAT.throwException();
             throw new IllegalStateException("도달할 수 없는 코드입니다.");
         }
     }
